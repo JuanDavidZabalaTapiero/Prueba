@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="src/img/logo.png" type="image/x-icon">
+    <!-- BOOTSTRAP CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="src/css/style.css">
+    <!-- ICONS BOOTSTRAP -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <main>
+        <section class="caratula">
+            <div class="cont-cara">
+                <div class="top-part d-flex justify-content-between align-items-center">
+                    <i class="bi bi-arrow-left"></i>
+                    <i class="bi bi-x-lg"></i>
+                </div>
+
+                <div class="main-part">
+                    <img src="" alt="">
+                    <div class="btns d-flex justify-content-between align-items-center">
+                        <i class="bi bi-heart"></i>
+                        <h2></h2>
+                        <i class="bi bi-share-fill"></i>
+                    </div>
+                    <p></p>
+                </div>
+
+                <div class="bottom-part">
+                    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="75"
+                        aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+
+                    <div class="time d-flex justify-content-between align-items-center">
+                        <span id="current-time">0:00</span>
+                        <span id="total-time">0:00</span>
+                    </div>
+
+                    <div class="btns-cara d-flex justify-content-between align-items-center">
+                        <i class="bi bi-arrow-clockwise"></i>
+                        <i class="bi bi-chevron-bar-left"></i>
+                        <div class="btn-play" id="btn-play">
+                            <i class="bi bi-pause-fill" id="play-icon"></i>
+                        </div>
+                        <i class="bi bi-chevron-bar-right"></i>
+                        <i class="bi bi-shuffle"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <audio id="audio" src=""></audio>
+
+        <section class="principal">
+            <div>
+                <img src="src/img/logo.png" alt="">
+                <h2>Melodify</h2>
+            </div>
+        </section>
+
+        <section class="lista-canciones">
+
+            <div class="cont-arriba d-flex justify-content-between align-items-center">
+                <a href="#">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+                <h2>Mi lista</h2>
+                <a href="#">
+                    <i class="bi bi-search"></i>
+                </a>
+            </div>
+
+            <div class="songs">
+                <div class="song d-flex justify-content-between align-items-center"
+                    data-audio="src/songs/Hymn for the Weekend - (Radio Edit).mp3"
+                    data-imgd="src/img/Coldplay,_Hymn_for_the_Weekend\ dif.png"
+                    data-img="src/img/Coldplay,_Hymn_for_the_Weekend.jpg" data-title="Hymn For The Weekend"
+                    data-artist="Coldplay">
+
+                    <div class="column-1 d-flex align-items-center">
+                        <img src="src/img/Coldplay,_Hymn_for_the_Weekend.jpg" alt="">
+                        <div class="info-song">
+                            <p class="title">Hymn For The Weekend</p>
+                            <p class="autor">3:43 | Coldplay</p>
+                        </div>
+                    </div>
+
+                    <div class="column-2 d-flex align-items-center justify-content-center">
+                        <i class="bi bi-three-dots"></i>
+                    </div>
+                </div>
+
+                <div class="song d-flex justify-content-between align-items-center"
+                    data-audio="src/songs/Green Day - American Idiot lyrics [1080p].mp3"
+                    data-imgd="src/img/american\ iditot\ -\ green\ day\ dif.png"
+                    data-img="src/img/american iditot - green day.gif" data-title="American Idiot"
+                    data-artist="Green Day">
+
+                    <div class="column-1 d-flex align-items-center">
+                        <img src="src/img//american iditot - green day.gif" alt="">
+                        <div class="info-song">
+                            <p class="title">American Idiot</p>
+                            <p class="autor">2:54 | Green Day</p>
+                        </div>
+                    </div>
+
+                    <div class="column-2 d-flex align-items-center justify-content-center">
+                        <i class="bi bi-three-dots"></i>
+                    </div>
+                </div>
+
+                <div class="song d-flex justify-content-between align-items-center"
+                    data-audio="src/songs/Alan Walker - Faded.mp3" data-imgd="src/img/faded-alanwalkerdif.png"
+                    data-img="src/img/faded - alan walker.jpg" data-title="Faded" data-artist="Alan Walker">
+
+                    <div class="column-1 d-flex align-items-center">
+                        <img src="src/img/faded - alan walker.jpg" alt="">
+                        <div class="info-song">
+                            <p class="title">Faded</p>
+                            <p class="autor">3:32 | Alan Walker</p>
+                        </div>
+                    </div>
+
+                    <div class="column-2 d-flex align-items-center justify-content-center">
+                        <i class="bi bi-three-dots"></i>
+                    </div>
+                </div>
+
+                <div class="song d-flex justify-content-between align-items-center"
+                    data-audio="src/songs/Manuel Turizo - La Bachata.mp3"
+                    data-imgd="src/img/la-bachata-manuel-turizo-dif.png"
+                    data-img="src/img/la bachata - manuel turizo.jpg" data-title="La Bachata"
+                    data-artist="Manuel Turizo">
+
+                    <div class="column-1 d-flex align-items-center">
+                        <img src="src/img/la bachata - manuel turizo.jpg" alt="">
+                        <div class="info-song">
+                            <p class="title">La Bachata</p>
+                            <p class="autor">2:42 | Manuel Turizo</p>
+                        </div>
+                    </div>
+
+                    <div class="column-2 d-flex align-items-center justify-content-center">
+                        <i class="bi bi-three-dots"></i>
+                    </div>
+                </div>
+
+                <div class="song d-flex justify-content-between align-items-center"
+                    data-audio="src/songs/Rammstein - Du Hast (Official 4K Video).mp3"
+                    data-imgd="src/img/Du-hast-Rammstein-dif.png" data-img="src/img/Du hast - Rammstein.jpg"
+                    data-title="Du Hast" data-artist="Rammstein">
+
+                    <div class="column-1 d-flex align-items-center">
+                        <img src="src/img/Du hast - Rammstein.jpg" alt="">
+                        <div class="info-song">
+                            <p class="title">Du Hast</p>
+                            <p class="autor">3:55 | Rammstein</p>
+                        </div>
+                    </div>
+
+                    <div class="column-2 d-flex align-items-center justify-content-center">
+                        <i class="bi bi-three-dots"></i>
+                    </div>
+                </div>
+
+                <div class="song d-flex justify-content-between align-items-center"
+                    data-audio="src/songs/Thriller (2003 Edit).mp3"
+                    data-imgd="src/img/Michael_Jackson_-_Thriller-dif.png"
+                    data-img="src/img/Michael_Jackson_-_Thriller.png" data-title="Thriller"
+                    data-artist="Michael Jackson">
+
+                    <div class="column-1 d-flex align-items-center">
+                        <img src="src/img/Michael_Jackson_-_Thriller.png" alt="">
+                        <div class="info-song">
+                            <p class="title">Thriller</p>
+                            <p class="autor">5:11 | Michael Jackson</p>
+                        </div>
+                    </div>
+
+                    <div class="column-2 d-flex align-items-center justify-content-center">
+                        <i class="bi bi-three-dots"></i>
+                    </div>
+                </div>
+
+                <div class="song d-flex justify-content-between align-items-center"
+                    data-audio="src/songs/The-Weeknd-Blinding-Lights-(Official Audio).mp3"
+                    data-imgd="src/img/The_Weeknd_-_Blinding_Lights-dif.png"
+                    data-img="src/img/The_Weeknd_-_Blinding_Lights.png" data-title="Blinding Lights"
+                    data-artist="The Weeknd">
+
+                    <div class="column-1 d-flex align-items-center">
+                        <img src="src/img/The_Weeknd_-_Blinding_Lights.png" alt="">
+                        <div class="info-song">
+                            <p class="title">Blinding Lights</p>
+                            <p class="autor">3:23 | The Weeknd</p>
+                        </div>
+                    </div>
+
+                    <div class="column-2 d-flex align-items-center justify-content-center">
+                        <i class="bi bi-three-dots"></i>
+                    </div>
+                </div>
+
+                <div class="song d-flex justify-content-between align-items-center"
+                    data-audio="src/songs/In The End [Official HD Music Video] - Linkin Park.mp3"
+                    data-imgd="src/img/LinkinParkIntheEnd-dif.png" data-img="src/img/LinkinParkIntheEnd.jpg"
+                    data-title="In The End" data-artist="Linkin Park">
+
+                    <div class="column-1 d-flex align-items-center">
+                        <img src="src/img/LinkinParkIntheEnd.jpg" alt="">
+                        <div class="info-song">
+                            <p class="title">In The End</p>
+                            <p class="autor">3:38 | Linkin Park</p>
+                        </div>
+                    </div>
+
+                    <div class="column-2 d-flex align-items-center justify-content-center">
+                        <i class="bi bi-three-dots"></i>
+                    </div>
+                </div>
+
+                <div class="song d-flex justify-content-between align-items-center"
+                    data-audio="src/songs/System Of A Down - Chop Suey! (Official HD Video).mp3"
+                    data-imgd="src/img/ChopSuey-System-Of-A-Down-dif.png"
+                    data-img="src/img/ChopSuey - System Of A Down.jpg" data-title="Chop Suey!"
+                    data-artist="System Of A Down">
+
+                    <div class="column-1 d-flex align-items-center">
+                        <img src="src/img/ChopSuey - System Of A Down.jpg" alt="">
+                        <div class="info-song">
+                            <p class="title">Chop Suey!</p>
+                            <p class="autor">3:28 | System Of A Down</p>
+                        </div>
+                    </div>
+
+                    <div class="column-2 d-flex align-items-center justify-content-center">
+                        <i class="bi bi-three-dots"></i>
+                    </div>
+                </div>
+
+                <div class="song d-flex justify-content-between align-items-center"
+                    data-audio="src/songs/Kiss Me More.mp3" data-imgd="src/img/Kiss-me-more-Doja-cat-dif.png"
+                    data-img="src/img/Kiss me more - Doja cat.webp" data-title="Kiss Me More"
+                    data-artist="Doja Cat ft. SZA">
+
+                    <div class="column-1 d-flex align-items-center">
+                        <img src="src/img/Kiss me more - Doja cat.webp" alt="">
+                        <div class="info-song">
+                            <p class="title">Kiss Me More</p>
+                            <p class="autor">3:28 | Doja Cat</p>
+                        </div>
+                    </div>
+
+                    <div class="column-2 d-flex align-items-center justify-content-center">
+                        <i class="bi bi-three-dots"></i>
+                    </div>
+                </div>
+
+                <div class="song d-flex justify-content-between align-items-center"
+                    data-audio="src/songs/Rauw Alejandro - Todo de Ti (LetraLyrics).mp3"
+                    data-imgd="src/img/Rauw-Alejandro-Todo-de-Ti-dif.png"
+                    data-img="src/img/Rauw Alejandro - Todo de Ti.jpg" data-title="Todo De Ti"
+                    data-artist="Rauw Alejandro">
+
+                    <div class="column-1 d-flex align-items-center">
+                        <img src="src/img/Rauw Alejandro - Todo de Ti.jpg" alt="">
+                        <div class="info-song">
+                            <p class="title">Todo de Ti</p>
+                            <p class="autor">3:19 | Rauw Alejandro</p>
+                        </div>
+                    </div>
+
+                    <div class="column-2 d-flex align-items-center justify-content-center">
+                        <i class="bi bi-three-dots"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="abajo">
+                <div class="btns btns-abajo">
+                    <a href="#"><i class="bi bi-house-door-fill"></i></a>
+                    <a href="#"><i class="bi bi-music-note-list"></i></a>
+                    <a href="#"><i class="bi bi-heart-fill"></i></a>
+                </div>
+            </div>
+
+        </section>
+
+        </section>
+    </main>
+
+    <script src="src/js/script.js"></script>
+    <!-- BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
