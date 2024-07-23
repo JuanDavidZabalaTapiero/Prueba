@@ -11,7 +11,17 @@ const mp3Resources = [
   'src/songs/In The End [Official HD Music Video] - Linkin Park.mp3',
   'src/songs/System Of A Down - Chop Suey! (Official HD Video).mp3',
   'src/songs/Kiss Me More.mp3',
-  'src/songs/Rauw Alejandro - Todo de Ti (LetraLyrics).mp3'
+  'src/songs/Rauw Alejandro - Todo de Ti (LetraLyrics).mp3',
+  'src/img/american iditot - green day dif.png',
+  'src/img/ChopSuey-System-Of-A-Down-dif.png',
+  'src/img/Du-hast-Rammstein-dif.png',
+  'src/img/faded-alanwalkerdif.png',
+  'src/img/Kiss-me-more-Doja-cat-dif.png',
+  'src/img/la-bachata-manuel-turizo-dif.png',
+  'src/img/LinkinParkIntheEnd-dif.png',
+  'src/img/Michael_Jackson_-_Thriller-dif.png',
+  'src/img/Rauw-Alejandro-Todo-de-Ti-dif.png',
+  'src/img/The_Weeknd_-_Blinding_Lights-dif.png',
 ];
 
 // Función para cargar los archivos mp3
