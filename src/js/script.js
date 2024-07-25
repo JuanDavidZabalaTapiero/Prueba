@@ -1,5 +1,6 @@
+// 1. SE DESCARGAN LOS ARCHIVOS IMPORTANTES
+// ------------------------------------------------------
 
-// Lista de recursos mp3 a cargar
 const mp3Resources = [
   'src/songs/Hymn for the Weekend - (Radio Edit).mp3',
   'src/songs/Green Day - American Idiot lyrics [1080p].mp3',
@@ -14,6 +15,7 @@ const mp3Resources = [
   'src/songs/Rauw Alejandro - Todo de Ti (LetraLyrics).mp3',
   'src/img/american iditot - green day dif.png',
   'src/img/ChopSuey-System-Of-A-Down-dif.png',
+  'src/img/Coldplay,_Hymn_for_the_Weekend dif.png',
   'src/img/Du-hast-Rammstein-dif.png',
   'src/img/faded-alanwalkerdif.png',
   'src/img/Kiss-me-more-Doja-cat-dif.png',
@@ -24,34 +26,55 @@ const mp3Resources = [
   'src/img/The_Weeknd_-_Blinding_Lights-dif.png',
 ];
 
-// Función para cargar los archivos mp3
-function loadMP3Files(files, callback) {
+// Función para cargar los archivos
+function loadFiles(files, callback) {
   let loaded = 0;
   const total = files.length;
 
   files.forEach((url) => {
-    const audio = new Audio();
-    audio.src = url;
-    audio.oncanplaythrough = () => {
+    let media;
+    if (url.endsWith('.mp3')) {
+      media = new Audio();
+    } else if (url.endsWith('.png')) {
+      media = new Image();
+    }
+
+    if (media) {
+      media.src = url;
+      media.oncanplaythrough = media.onload = () => {
+        loaded++;
+        if (loaded === total) {
+          callback();
+        }
+      };
+      // MANEJAR ERRORES
+      media.onerror = () => {
+        console.error(`Error al descargar el archivo: ${url}`);
+        loaded++;
+        if (loaded === total) {
+          callback();
+        }
+      };
+    } else {
+      console.warn(`Archivo no soportado: ${url}`);
       loaded++;
       if (loaded === total) {
         callback();
       }
-    };
+    }
   });
 }
 
-// Inicializar la aplicación
-function initializeApp() {
-  // Esconde la pantalla de carga y muestra el contenido principal
-  document.getElementById('loading-screen').style.display = 'none';
-  document.getElementById('main-content').style.display = 'block';
-}
+// Inicializar la aplicación después de cargar los archivos
+loadFiles(mp3Resources, function () {
+  console.log('Todos los archivos se descargaron correctamente!');
+  // Aquí puedes inicializar la aplicación
+  // initApp();
+});
 
-// Cargar los archivos mp3 y luego inicializar la aplicación
-loadMP3Files(mp3Resources, initializeApp);
+// 2. CERRAR LA VISTA DE INICIO (PRESENTACIÓN DE LA APP)
+// ------------------------------------------------------  
 
-// 1. CERRAR LA VISTA DE INICIO (PRESENTACIÓN DE LA APP)
 window.addEventListener("load", function () {
   // Establece un temporizador de 1 segundo
   setTimeout(function () {
@@ -78,7 +101,8 @@ document.querySelectorAll(".song").forEach(function (songElement) {
   songs.push(songElement);
 });
 
-// 2. PARA REPRODUCIR LA CANCIÓN
+// 3. PARA REPRODUCIR LA CANCIÓN
+// ------------------------------------------------------
 
 // Función para reproducir una canción
 function playSong(songElement) {
@@ -107,17 +131,17 @@ function playSong(songElement) {
 
       var caratula = document.querySelector(".caratula");
 
+      var contCara = caratula.querySelector(".cont-cara");
+
+      // CAMBIAR EL FONDO DIFUMINADO
+      contCara.style.backgroundImage = `url(${imageD})`;
+
       // CAMBIAR EL ARTISTA
       caratula.querySelector("p").textContent = artist;
       // CAMBIAR LA IMG MAIN
       caratula.querySelector(".main-part img").src = img;
       // CAMBIAR EL TÍTULO
       caratula.querySelector("h2").textContent = title;
-
-      var contCara = caratula.querySelector(".cont-cara");
-
-      // CAMBIAR EL FONDO DIFUMINADO
-      contCara.style.backgroundImage = `url(${imageD})`;
 
       // HACER VISIBLE A LA CARÁTULA
       caratula.classList.add("visible");
@@ -244,7 +268,22 @@ document.querySelector(".abajo").addEventListener("click", function (event) {
 // Variable para almacenar el índice de la canción actual
 let currentSongIndex = -1;
 
-// 3. BOTONES Y ELEMENTOS DE LA CARÁTULA DE LA CANCIÓN
+// Actualizar el índice y reproducir la canción seleccionada al hacer clic en una canción
+document.querySelectorAll(".column-1").forEach(function (element, index) {
+  element.addEventListener("click", function () {
+
+    if (currentSongIndex == index) {
+      var caratula = document.querySelector(".caratula");
+      caratula.classList.add("visible");
+    } else {
+      currentSongIndex = index;
+      playSong(element.closest(".song"));
+    }
+  });
+});
+
+// 4. BOTONES Y ELEMENTOS DE LA CARÁTULA DE LA CANCIÓN
+// ------------------------------------------------------
 
 // Reproducir la canción anterior
 document
@@ -269,14 +308,6 @@ document
     }
     playSong(songs[currentSongIndex]);
   });
-
-// Actualizar el índice y reproducir la canción seleccionada al hacer clic en una canción
-document.querySelectorAll(".column-1").forEach(function (element, index) {
-  element.addEventListener("click", function () {
-    currentSongIndex = index;
-    playSong(element.closest(".song"));
-  });
-});
 
 // Reiniciar la canción al hacer clic en el icono de recargar
 document
