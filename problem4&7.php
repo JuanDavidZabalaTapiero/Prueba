@@ -48,4 +48,3 @@ function reverseString($input)
 $input = "Hola mundo";
 $output = reverseString($input);
 echo $output; // odnum aloH
-
